@@ -1,0 +1,302 @@
+/* --- Core Reset & Custom Design Tokens --- */
+:root {
+    /* 2025 Hex Code Palette Constraints */
+    --color-mocha: #A5856F;      /* Represents Stability */
+    --color-blue: #A0D4E0;       /* Represents Trust */
+    --color-grey: #F2F0EA;       /* Represents Refinement / Warm Background */
+    --color-dark: #2B2A27;       /* Grounded Text Color */
+    --color-white: #FFFFFF;
+
+    /* Typography Constraints (Strictly Max 2 Font Families) */
+    --font-headers: 'Inter', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-grey);
+    color: var(--color-dark);
+    line-height: 1.6;
+}
+
+/* --- Fluid Typography (Leveraging clamp for responsiveness) --- */
+h1 {
+    font-family: var(--font-headers);
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    font-family: var(--font-headers);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+h3 {
+    font-family: var(--font-headers);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+p {
+    font-size: clamp(1rem, 1vw + 0.5rem, 1.15rem);
+    opacity: 0.9;
+}
+
+/* --- UI Micro-Components (Flexbox Layout Alignment) --- */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 2rem;
+    background-color: var(--color-white);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-family: var(--font-headers);
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: -0.5px;
+}
+
+.menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--color-dark);
+}
+
+.nav-links {
+    display: none; /* Controlled dynamically by JavaScript on mobile */
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-white);
+    padding: 1.5rem;
+    list-style: none;
+    gap: 1.5rem;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+}
+
+.nav-links.active {
+    display: flex;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--color-dark);
+    font-family: var(--font-headers);
+    font-weight: 600;
+}
+
+/* Button UI Styling Elements */
+.btn-primary, .btn-secondary {
+    padding: 0.8rem 1.8rem;
+    border-radius: 6px;
+    font-family: var(--font-headers);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background-color: var(--color-mocha);
+    color: var(--color-white);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #8C6F5B;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-dark);
+    border: 2px solid var(--color-dark);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+}
+
+/* --- Macro Layout Structure --- */
+.hero-section {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 2rem 4rem 2rem;
+    background: linear-gradient(135deg, #FFFFFF 0%, #EBF4F6 100%);
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero-content p {
+    margin-bottom: 2rem;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.features-section {
+    padding: 6rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Macro Layout System using 2D CSS Grid */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 Column default layout on mobile */
+    gap: 2rem;
+}
+
+.card {
+    background-color: var(--color-white);
+    padding: 2.5rem;
+    border-radius: 12px;
+    border-top: 4px solid var(--color-blue); /* Visual indicator strip */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.01);
+}
+
+.card-icon {
+    font-size: 2rem;
+    color: var(--color-mocha);
+    margin-bottom: 1rem;
+}
+
+.site-footer {
+    background-color: var(--color-dark);
+    color: var(--color-grey);
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.footer-content p {
+    font-size: 0.95rem;
+    margin: 0.5rem 0;
+}
+
+/* --- Step 4: Adaptive Screen Breakpoints (Media Queries) --- */
+
+/* Tablet Layout Optimization Screen Breakpoint */
+@media (min-width: 768px) {
+    .content-grid {
+        grid-template-columns: repeat(2, 1fr); /* Automatically scales layout into 2 balanced columns */
+    }
+}
+
+/* Desktop Layout Optimization Screen Breakpoint */
+@media (min-width: 1024px) {
+    .menu-toggle {
+        display: none; /* Hide mobile hamburger lines icon layout on wider desktop displays */
+    }
+
+    .nav-links {
+        display: flex; /* Displays inline horizontal items navigation cleanly on desktop */
+        flex-direction: row;
+        position: static;
+        width: auto;
+        padding: 0;
+        box-shadow: none;
+        align-items: center;
+    }
+
+    .content-grid {
+        grid-template-columns: repeat(3, 1fr); /* Automatically changes structure to an architecture layout flat 3-column floor plan */
+    }
+    
+    .hero-section {
+        padding: 6rem 4rem;
+    }
+}
+
+/* ==========================================================================
+   --- Form UI Components Integration (Added for Frontend/Backend Step 3) ---
+   ========================================================================== */
+
+.form-section {
+    padding: 6rem 2rem;
+    max-width: 600px; /* Centers the form cleanly on the layout */
+    margin: 0 auto;
+}
+
+.form-card {
+    background-color: var(--color-white);
+    padding: 3rem;
+    border-radius: 12px;
+    border-top: 4px solid var(--color-mocha); /* Styled component visual balance key */
+    box-shadow: 0 4px 25px rgba(0,0,0,0.02);
+}
+
+.form-group {
+    margin-bottom: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    font-family: var(--font-headers);
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--color-dark);
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    border: 2px solid #E2DFD5; /* Complementary tint blending with your color-grey */
+    border-radius: 6px;
+    background-color: var(--color-white);
+    color: var(--color-dark);
+    transition: all 0.25s ease;
+}
+
+/* Micro-interaction Focus States */
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-blue); /* Highlights cleanly on focus using your system color */
+    box-shadow: 0 0 0 4px rgba(160, 212, 224, 0.2); /* Smooth highlight rings */
+}
+
+/* Full-width submit adjustments */
+.form-card .btn-primary {
+    width: 100%;
+    margin-top: 0.5rem;
+}

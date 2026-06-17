@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Craftsmanship | Project 4 Full-Stack</title>
+    <link rel="icon" href="data:,">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <nav class="nav-container">
+            <div class="logo">DecodeLabs</div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigationMenu">
+                ☰
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#tasks">Tasks</a></li>
+                <li><button class="btn-primary">Get Started</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="home">
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>The Future of Digital Craft</h1>
+                <p>Design is an iterative process that blends precision with empathy. Experience grounded, next-generation web stability built from the foundation up.</p>
+                <div class="hero-actions">
+                    <button class="btn-primary">Explore Platform</button>
+                    <button class="btn-secondary">Learn More</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section" id="features">
+            <h2>Architectural Features</h2>
+            <div class="content-grid">
+                <article class="card">
+                    <div class="card-icon">✦</div>
+                    <h3>Semantic Integrity</h3>
+                    <p>Code engineered meticulously for screen readers, AI parsers, and strict modern search engine visibility optimization.</p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">✦</div>
+                    <h3>Universal Access</h3>
+                    <p>Strict compliance with global WCAG specifications ensures that digital inclusion is never treated as an afterthought.</p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">✦</div>
+                    <h3>Fluid Architecture</h3>
+                    <p>Layouts designed utilizing advanced CSS layouts that respond intelligently without hardcoded fixed dimensions.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="form-section" id="tasks">
+            <div class="form-card">
+                <h2>Create a New Task</h2>
+                <p style="text-align: center; margin-bottom: 2rem; opacity: 0.7;">
+                    Type a task below to test your backend API dynamic data transmission.
+                </p>
+                
+                <form id="task-form">
+                    <div class="form-group">
+                        <label for="task-input">Task Title</label>
+                        <input id="task-input" type="text" placeholder="e.g., Complete Project Documentation" required>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Add Task to Server</button>
+                </form>
+
+                <div class="task-list-container" style="margin-top: 2.5rem; text-align: left;">
+                    <h3 style="margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;">Your Saved Tasks</h3>
+                    <ul id="task-list" style="list-style: none; padding: 0; margin-top: 1rem;">
+                        </ul>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2026 DecodeLabs Internship Program. Built with absolute clarity.</p>
+            <p>Universal Access &bull; 2025 UI/UX Compliant</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
