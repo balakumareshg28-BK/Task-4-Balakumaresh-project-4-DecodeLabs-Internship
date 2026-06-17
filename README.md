@@ -6,12 +6,12 @@ A robust, full-stack Task Management application built as a part of the **Decode
 ## 📷 Application Preview & Interface Walkthrough
 
 <p align="center">
-  <img src="./images/preview1.jpeg" width="45%" alt="Dashboard Overview" />
-  <img src="./images/preview2.jpeg" width="45%" alt="Task Creation" />
+    <img src="./images/preview1.jpeg" width="45%" alt="Dashboard Overview" />
+    <img src="./images/preview2.jpeg" width="45%" alt="Task Creation" />
 </p>
 <p align="center">
-  <img src="./images/preview3.jpeg" width="45%" alt="Database Persistence" />
-  <img src="./images/preview4.jpeg" width="45%" alt="Validation Controls" />
+    <img src="./images/preview3.jpeg" width="45%" alt="Database Persistence" />
+    <img src="./images/preview4.jpeg" width="45%" alt="Validation Controls" />
 </p>
 
 ---
